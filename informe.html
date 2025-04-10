@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOMO 81 - Estimador de Proyectos de Software</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <style>
+        .informe-section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .informe-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .informe-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .variables-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .variables-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .variables-list li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .ejemplo-codigo {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+
+        .tecnologias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tecnologia-item {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--background-color);
+            border-radius: 4px;
+        }
+
+        .tecnologia-item img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 10px;
+        }
+
+        .aplicativo-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .aplicativo-link:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>COCOMO 81 - Estimador de Proyectos de Software</h1>
+            <p>Modelo Intermedio para Estimación de Esfuerzo en Proyectos de Software</p>
+            <a href="index.html" class="aplicativo-link">Ir al Aplicativo</a>
+        </header>
+
+        <section class="informe-section">
+            <h2>Información del Proyecto</h2>
+            <p><strong>Integrantes:</strong> Estiven Villanueva Moscoso y Diego Alejandro Giraldo</p>
+            <p><strong>Fecha de Desarrollo:</strong> Marzo 2025</p>
+        </section>
+
+        <section class="informe-section">
+            <h2>Variables Implementadas</h2>
+            <p>El modelo COCOMO 81 intermedio implementa las siguientes variables:</p>
+            
+            <h3>Factores de Ajuste</h3>
+            <ul class="variables-list">
+                <li><strong>RELY</strong> - Fiabilidad Requerida</li>
+                <li><strong>DATA</strong> - Tamaño de la Base de Datos</li>
+                <li><strong>CPLX</strong> - Complejidad del Producto</li>
+                <li><strong>TIME</strong> - Restricciones de Tiempo</li>
+                <li><strong>STOR</strong> - Restricciones de Almacenamiento</li>
+                <li><strong>VIRT</strong> - Volatilidad de la Máquina Virtual</li>
+                <li><strong>TURN</strong> - Tiempo de Respuesta</li>
+                <li><strong>ACAP</strong> - Capacidad de los Analistas</li>
+                <li><strong>AEXP</strong> - Experiencia en la Aplicación</li>
+                <li><strong>PCAP</strong> - Capacidad de los Programadores</li>
+                <li><strong>VEXP</strong> - Experiencia en la Máquina Virtual</li>
+                <li><strong>LEXP</strong> - Experiencia en el Lenguaje</li>
+                <li><strong>MODP</strong> - Prácticas Modernas de Programación</li>
+                <li><strong>TOOL</strong> - Uso de Herramientas de Software</li>
+                <li><strong>SCED</strong> - Restricciones de Calendario</li>
+            </ul>
+
+            <h3>Modos de Proyecto</h3>
+            <ul class="variables-list">
+                <li><strong>Orgánico</strong> - Proyectos pequeños y simples</li>
+                <li><strong>Semi-Aislado</strong> - Proyectos de tamaño medio</li>
+                <li><strong>Empotrado</strong> - Proyectos complejos con requisitos estrictos</li>
+            </ul>
+        </section>
+
+        <section class="informe-section">
+            <h2>Ejemplo de Cálculo</h2>
+            <p>Para un proyecto de 50 KLOC en modo orgánico:</p>
+            
+            <div class="ejemplo-codigo">
+                <p>Datos de entrada:</p>
+                <ul>
+                    <li>Tamaño del Proyecto: 50 KLOC</li>
+                    <li>Modo: Orgánico</li>
+                    <li>Sueldo Mensual: $2000 USD</li>
+                    <li>Factores de Ajuste: Valores nominales</li>
+                </ul>
+
+                <p>Cálculos:</p>
+                <ul>
+                    <li>Esfuerzo = 3.2 * (50)^1.05 * 1.0 = 178.19 persona-mes</li>
+                    <li>Duración = 2.5 * (178.19)^0.38 = 12.34 meses</li>
+                    <li>Tamaño del Equipo = 178.19 / 12.34 = 14.44 programadores</li>
+                    <li>Costo Total = $2000 * 14.44 * 12.34 = $356,379.20 USD</li>
+                </ul>
+            </div>
+
+            <h3>Interpretación de Resultados</h3>
+            <p>Para un proyecto de 50 KLOC en modo orgánico, se estima que:</p>
+            <ul class="variables-list">
+                <li>Se requerirán aproximadamente 178.19 persona-mes de esfuerzo</li>
+                <li>Con un equipo de 15 programadores, el proyecto tomará 12.34 meses</li>
+                <li>El costo total estimado es de $356,379.20 USD</li>
+                <li>Este es un proyecto de tamaño medio que requiere un equipo experimentado</li>
+            </ul>
+        </section>
+
+        <section class="informe-section">
+            <h2>Tecnologías Utilizadas</h2>
+            <div class="tecnologias-grid">
+                <div class="tecnologia-item">
+                    <h3>HTML5</h3>
+                    <p>Estructura y semántica del documento</p>
+                </div>
+                <div class="tecnologia-item">
+                    <h3>CSS3</h3>
+                    <p>Estilos y diseño responsivo</p>
+                </div>
+                <div class="tecnologia-item">
+                    <h3>JavaScript</h3>
+                    <p>Lógica de negocio y cálculos</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 - COCOMO 81 Estimador de Proyectos de Software</p>
+        </footer>
+    </div>
+</body>
+</html> 

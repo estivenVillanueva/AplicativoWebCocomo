@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOMO 81 - Estimación de Proyectos de Software</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>COCOMO 81 - Modelo Intermedio</h1>
+            <p>Herramienta para estimación de esfuerzo en proyectos de software</p>
+            <a href="informe.html" class="informe-link">Ver Información del Proyecto</a>
+        </header>
+
+        <main>
+            <form id="cocomoForm">
+                <section class="input-section">
+                    <h2>Datos del Proyecto</h2>
+                    <div class="form-group">
+                        <label for="kloc">Tamaño del Proyecto (KLOC):</label>
+                        <input type="number" id="kloc" name="kloc" step="0.1" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mode">Modo del Proyecto:</label>
+                        <select id="mode" name="mode" required>
+                            <option value="organic">Orgánico</option>
+                            <option value="semi-detached">Semi-Aislado</option>
+                            <option value="embedded">Empotrado</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="input-section">
+                    <h2>Factores de Ajuste</h2>
+                    <div class="factors-grid">
+                        <div class="form-group">
+                            <label for="rely">Fiabilidad Requerida (RELY):</label>
+                            <select id="rely" name="rely" required>
+                                <option value="0.75">Muy Baja</option>
+                                <option value="0.88">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.15">Alta</option>
+                                <option value="1.40">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data">Tamaño de la Base de Datos (DATA):</label>
+                            <select id="data" name="data" required>
+                                <option value="0.94">Bajo</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.08">Alto</option>
+                                <option value="1.16">Muy Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cplx">Complejidad del Producto (CPLX):</label>
+                            <select id="cplx" name="cplx" required>
+                                <option value="0.70">Muy Baja</option>
+                                <option value="0.85">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.15">Alta</option>
+                                <option value="1.30">Muy Alta</option>
+                                <option value="1.65">Extra Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Restricciones de Tiempo (TIME):</label>
+                            <select id="time" name="time" required>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.11">Alto</option>
+                                <option value="1.30">Muy Alto</option>
+                                <option value="1.66">Extra Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stor">Restricciones de Almacenamiento (STOR):</label>
+                            <select id="stor" name="stor" required>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.06">Alto</option>
+                                <option value="1.21">Muy Alto</option>
+                                <option value="1.56">Extra Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="virt">Volatilidad de la Máquina Virtual (VIRT):</label>
+                            <select id="virt" name="virt" required>
+                                <option value="0.87">Bajo</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.15">Alto</option>
+                                <option value="1.30">Muy Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="turn">Tiempo de Respuesta (TURN):</label>
+                            <select id="turn" name="turn" required>
+                                <option value="0.87">Bajo</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.07">Alto</option>
+                                <option value="1.15">Muy Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acap">Capacidad de los Analistas (ACAP):</label>
+                            <select id="acap" name="acap" required>
+                                <option value="1.46">Muy Baja</option>
+                                <option value="1.19">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="0.86">Alta</option>
+                                <option value="0.71">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aexp">Experiencia en la Aplicación (AEXP):</label>
+                            <select id="aexp" name="aexp" required>
+                                <option value="1.29">Muy Baja</option>
+                                <option value="1.13">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="0.91">Alta</option>
+                                <option value="0.82">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pcap">Capacidad de los Programadores (PCAP):</label>
+                            <select id="pcap" name="pcap" required>
+                                <option value="1.42">Muy Baja</option>
+                                <option value="1.17">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="0.86">Alta</option>
+                                <option value="0.70">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vexp">Experiencia en la Máquina Virtual (VEXP):</label>
+                            <select id="vexp" name="vexp" required>
+                                <option value="1.21">Baja</option>
+                                <option value="1.10">Nominal</option>
+                                <option value="1.00" selected>Alta</option>
+                                <option value="0.90">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lexp">Experiencia en el Lenguaje (LEXP):</label>
+                            <select id="lexp" name="lexp" required>
+                                <option value="1.14">Baja</option>
+                                <option value="1.07">Nominal</option>
+                                <option value="1.00" selected>Alta</option>
+                                <option value="0.95">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modp">Prácticas Modernas de Programación (MODP):</label>
+                            <select id="modp" name="modp" required>
+                                <option value="1.24">Muy Baja</option>
+                                <option value="1.10">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="0.91">Alta</option>
+                                <option value="0.82">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tool">Uso de Herramientas de Software (TOOL):</label>
+                            <select id="tool" name="tool" required>
+                                <option value="1.24">Muy Baja</option>
+                                <option value="1.10">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="0.91">Alta</option>
+                                <option value="0.82">Muy Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sced">Restricciones de Calendario (SCED):</label>
+                            <select id="sced" name="sced" required>
+                                <option value="1.23">Muy Baja</option>
+                                <option value="1.08">Baja</option>
+                                <option value="1.00" selected>Nominal</option>
+                                <option value="1.04">Alta</option>
+                                <option value="1.10">Muy Alta</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="input-section">
+                    <h2>Información de Costos</h2>
+                    <div class="form-group">
+                        <label for="salary">Sueldo Mensual Promedio (USD):</label>
+                        <input type="number" id="salary" name="salary" min="0" required>
+                    </div>
+                </section>
+
+                <section class="input-section">
+                    <h2>Opciones de Cálculo</h2>
+                    <div class="form-group">
+                        <label for="calcType">Tipo de Cálculo:</label>
+                        <select id="calcType" name="calcType" required>
+                            <option value="effort">Calcular Esfuerzo</option>
+                            <option value="duration">Calcular Duración (con número de programadores)</option>
+                            <option value="team">Calcular Equipo (con duración deseada)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="programmersGroup" style="display: none;">
+                        <label for="programmers">Número de Programadores:</label>
+                        <input type="number" id="programmers" name="programmers" min="1">
+                    </div>
+
+                    <div class="form-group" id="durationGroup" style="display: none;">
+                        <label for="duration">Duración Deseada (meses):</label>
+                        <input type="number" id="duration" name="duration" min="1">
+                    </div>
+                </section>
+
+                <div class="button-group">
+                    <button type="submit" class="calculate-btn">Calcular</button>
+                    <button type="reset" class="reset-btn">Limpiar</button>
+                </div>
+            </form>
+
+            <section id="results" class="results-section" style="display: none;">
+                <h2>Resultados</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <h3>Esfuerzo Estimado</h3>
+                        <p id="effortResult">-</p>
+                        <p class="result-description">Persona-mes</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Duración Estimada</h3>
+                        <p id="durationResult">-</p>
+                        <p class="result-description">Meses</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Tamaño del Equipo</h3>
+                        <p id="teamSizeResult">-</p>
+                        <p class="result-description">Programadores</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Costo Total Estimado</h3>
+                        <p id="costResult">-</p>
+                        <p class="result-description">USD</p>
+                    </div>
+                </div>
+                <div class="interpretation">
+                    <h3>Interpretación de los Resultados</h3>
+                    <p id="interpretationText"></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Desarrollado por [Nombres de los Integrantes] - [Mes] [Año]</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
